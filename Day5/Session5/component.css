@@ -1,0 +1,43 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;    
+  background: #f3f4f6;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.image-box {
+  height: 300px;
+  width: 300px;
+  background-color: blueviolet;
+  border: 2px solid black;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.image-box img {
+  width: 2000px;
+  height: 200px;
+  transition: transform 0.5s ease;
+}
+
+
+.image-box:hover {
+  background-color: chartreuse;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.image-box:hover img {
+  transform: scale(1.2);
+}
