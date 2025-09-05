@@ -1,0 +1,178 @@
+{
+  "HTML5 Boilerplate": {
+    "scope": "html",
+    "prefix": "html5",
+    "description": "Basic HTML5 document with meta+viewport",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"${1:en}\">",
+      "<head>",
+      "  <meta charset=\"UTF-8\" />",
+      "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />",
+      "  <title>${2:Document}</title>",
+      "  <link rel=\"stylesheet\" href=\"${3:style.css}\" />",
+      "</head>",
+      "<body>",
+      "  ${0}",
+      "  <script src=\"${4:app.js}\" defer></script>",
+      "</body>",
+      "</html>"
+    ]
+  },
+
+  "Link CSS": {
+    "scope": "html",
+    "prefix": "linkcss",
+    "description": "Link a stylesheet",
+    "body": [
+      "<link rel=\"stylesheet\" href=\"${1:style.css}\" />"
+    ]
+  },
+
+  "Script (defer)": {
+    "scope": "html",
+    "prefix": "scriptd",
+    "description": "Script tag with defer",
+    "body": [
+      "<script src=\"${1:app.js}\" defer></script>"
+    ]
+  },
+
+  "Script (module)": {
+    "scope": "html",
+    "prefix": "scriptm",
+    "description": "Script type=module",
+    "body": [
+      "<script type=\"module\">",
+      "  ${0:// your module code}",
+      "</script>"
+    ]
+  },
+
+  "Checkbox Input": {
+  "scope": "html",
+  "prefix": "chkbox",
+  "description": "Accessible checkbox input with label",
+  "body": [
+    "<div>",
+    "  <input type=\"checkbox\" id=\"${1:option}\" name=\"${1:option}\" value=\"${2:value}\" />",
+    "  <label for=\"${1:option}\">${3:Label}</label>",
+    "</div>$0"
+  ]
+},
+
+"Radio Button": {
+  "scope": "html",
+  "prefix": "radiobtn",
+  "description": "Accessible radio button input with label",
+  "body": [
+    "<div>",
+    "  <input type=\"radio\" id=\"${1:option1}\" name=\"${2:group}\" value=\"${3:value}\" />",
+    "  <label for=\"${1:option1}\">${4:Label}</label>",
+    "</div>$0"
+  ]
+},
+
+  "Responsive Image": {
+    "scope": "html",
+    "prefix": "img",
+    "description": "Accessible responsive image",
+    "body": [
+      "<img src=\"${1:/path/image.jpg}\" alt=\"${2:description}\" width=\"${3:600}\" height=\"${4:400}\" loading=\"lazy\" />$0"
+    ]
+  },
+
+  "SEO + Social Meta": {
+    "scope": "html",
+    "prefix": "metaseo",
+    "description": "Common SEO and Open Graph/Twitter meta tags",
+    "body": [
+      "<meta name=\"description\" content=\"${1:Page description}\" />",
+      "<meta name=\"theme-color\" content=\"${2:#ffffff}\" />",
+      "<meta property=\"og:title\" content=\"${3:Title}\" />",
+      "<meta property=\"og:description\" content=\"${4:Description}\" />",
+      "<meta property=\"og:type\" content=\"website\" />",
+      "<meta property=\"og:url\" content=\"${5:https://example.com}\" />",
+      "<meta property=\"og:image\" content=\"${6:/img/og.jpg}\" />",
+      "<meta name=\"twitter:card\" content=\"summary_large_image\" />"
+    ]
+  },
+
+  "Accessible Form": {
+    "scope": "html",
+    "prefix": "formx",
+    "description": "Form with fieldset, labels, and inputs",
+    "body": [
+      "<form action=\"${1:/submit}\" method=\"${2:post}\" novalidate>",
+      "  <fieldset>",
+      "    <legend>${3:Contact}</legend>",
+      "    <div>",
+      "      <label for=\"${4:name}\">${5:Name}</label>",
+      "      <input id=\"${4:name}\" name=\"${4:name}\" type=\"text\" required />",
+      "    </div>",
+      "    <div>",
+      "      <label for=\"${6:email}\">${7:Email}</label>",
+      "      <input id=\"${6:email}\" name=\"${6:email}\" type=\"email\" required />",
+      "    </div>",
+      "    <button type=\"submit\">${8:Submit}</button>",
+      "  </fieldset>",
+      "</form>$0"
+    ]
+  },
+
+  "Flex Container": {
+    "scope": "html",
+    "prefix": "flex",
+    "description": "Quick flex container with gap",
+    "body": [
+      "<div style=\"display:flex; gap:${1:1rem}; align-items:${2:center}; justify-content:${3:space-between};\">",
+      "  ${0}",
+      "</div>"
+    ]
+  },
+
+  "Navbar Basic": {
+    "scope": "html",
+    "prefix": "navbasic",
+    "description": "Simple responsive nav",
+    "body": [
+      "<header>",
+      "  <nav aria-label=\"Main\">",
+      "    <a href=\"#\" class=\"logo\">${1:Logo}</a>",
+      "    <ul>",
+      "      <li><a href=\"#${2:home}\">${3:Home}</a></li>",
+      "      <li><a href=\"#${4:about}\">${5:About}</a></li>",
+      "      <li><a href=\"#${6:contact}\">${7:Contact}</a></li>",
+      "    </ul>",
+      "  </nav>",
+      "</header>$0"
+    ]
+  },
+
+  "Footer 3 Columns": {
+    "scope": "html",
+    "prefix": "footer3",
+    "description": "Footer with 3 columns",
+    "body": [
+      "<footer>",
+      "  <div class=\"footer-container\">",
+      "    <section>",
+      "      <h4>${1:About}</h4>",
+      "      <p>${2:Short description}</p>",
+      "    </section>",
+      "    <section>",
+      "      <h4>${3:Links}</h4>",
+      "      <ul>",
+      "        <li><a href=\"#\">${4:Item 1}</a></li>",
+      "        <li><a href=\"#\">${5:Item 2}</a></li>",
+      "      </ul>",
+      "    </section>",
+      "    <section>",
+      "      <h4>${6:Contact}</h4>",
+      "      <address>${7:you@example.com}</address>",
+      "    </section>",
+      "  </div>",
+      "</footer>$0"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📋 Student Attendance</h1>
+    <form id="studentForm">
+      <input type="number" id="rollInput" placeholder="Roll No" required />
+      <input type="text" id="nameInput" placeholder="Student Name" required />
+      <button type="submit">Add Student</button>
+    </form>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="studentList">
+      </tbody>
+    </table>
+
+    <div class="summary">
+      <p>Total: <span id="total">0</span></p>
+      <p>Present: <span id="present">0</span></p>
+      <p>Absent: <span id="absent">0</span></p>
+    </div>
+  </div>
+
+  <script src="dom.js"></script>
+</body>
+</html>
