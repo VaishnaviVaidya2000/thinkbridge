@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--navbar-->
+  <nav>
+    <div class="logo"><img src="logo.jpeg" alt="logo" width="50" height="50"></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="Addtopic.html">Add Topic</a></li>      
+      <li><a href="#footer-column">Contact</a></li>
+    </ul>
+    <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  <!--End of Navbar-->
+<!--Marquee-->
+<div class="marquee-container">
+    <div class="marquee-content">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="html2.jpeg" alt="HTML">
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="css2.png" alt="CSS">
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="js.png" alt="JS">
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <img src="github.png" alt="GitHub">
+      </div>
+
+      <!-- Duplicate for smooth loop -->
+      <div class="card">
+        <img src="html2.jpeg" alt="HTML">
+      </div>
+      <div class="card">
+        <img src="css2.png" alt="CSS">
+      </div>
+      <div class="card">
+        <img src="js.png" alt="JS">
+      </div>
+      <div class="card">
+        <img src="github.png" alt="GitHub">
+      </div>
+    </div>
+  </div>
+<!--End of Marquee-->
+  <!--Footer-->
+ <footer>
+    <div class="footer-container">
+     
+      <div class="footer-column">
+        <h3>About Us</h3>
+        <p>
+         Learn 
+          <strong>HTML</strong>, <strong>CSS</strong>, 
+          <strong>JavaScript</strong>, and <strong>GitHub</strong>. 
+        </p>
+      </div>
+
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Topic</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <ul>
+          <li>Email: vaidyavaishu2000@gmail.com</li>
+          <li>Phone: +91 9284211585</li>
+          <li>Location: Pune, India</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 Thinkbridge. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

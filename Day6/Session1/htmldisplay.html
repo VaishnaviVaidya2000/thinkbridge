@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Data</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      padding: 20px;
+    }
+    .output {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    .output h2 {
+      margin-bottom: 15px;
+    }
+    .data-box {
+      font-size: 18px;
+      color: #333;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <div class="output">
+    <h2>Data You Entered:</h2>
+    <div class="data-box" id="displayBox"></div>
+  </div>
+
+  <script>
+    // Get data from localStorage
+    let savedData = localStorage.getItem("userData");
+    document.getElementById("displayBox").textContent = savedData ? savedData : "No data found!";
+  </script>
+</body>
+</html>
