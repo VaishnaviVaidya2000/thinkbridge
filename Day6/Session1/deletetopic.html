@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete HTML Topic</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0; padding:0;
+    display:flex; justify-content:center; align-items:center;
+    min-height:100vh;
+    background: linear-gradient(135deg,#f0f4ff,#d9e4ff);
+  }
+
+  .container {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 400px;
+    text-align: center;
+    color: #333;
+  }
+
+  .container img {
+    width: 80px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+  }
+  .container img:hover {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  h1 {
+    color: #e34c26;
+    margin-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  input:focus {
+    box-shadow: 0 0 10px rgba(227,76,38,0.5);
+    transform: scale(1.02);
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #e34c26;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  button:hover {
+    background: #ff5b2c;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(227,76,38,0.6);
+  }
+
+  .message {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="Delete Icon">
+  <h1>Delete HTML Topic</h1>
+  <form id="deleteForm">
+    <input type="text" id="topicName" placeholder="Enter Topic Name" required>
+    <button type="submit">Delete</button>
+  </form>
+  <p class="message" id="message"></p>
+</div>
+
+<script>
+  const deleteForm = document.getElementById("deleteForm");
+  const message = document.getElementById("message");
+
+  deleteForm.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const topicName = document.getElementById("topicName").value.trim();
+    if(!topicName) return;
+
+    let topics = JSON.parse(localStorage.getItem("topics")) || [];
+
+    // Filter out the topic with matching name & category HTML
+    const initialLength = topics.length;
+    topics = topics.filter(t => !(t.name.toLowerCase() === topicName.toLowerCase() && t.category === "HTML"));
+
+    if(topics.length === initialLength){
+      message.style.color = "red";
+      message.innerText = "❌ Topic not found!";
+    } else {
+      localStorage.setItem("topics", JSON.stringify(topics));
+      message.style.color = "green";
+      message.innerText = `✅ Topic "${topicName}" deleted successfully!`;
+      document.getElementById("deleteForm").reset();
+    }
+  });
+</script>
+</body>
+</html>
