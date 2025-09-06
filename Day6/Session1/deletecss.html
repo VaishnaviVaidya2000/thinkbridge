@@ -103,7 +103,7 @@
 
     // Filter out the topic with matching name & category HTML
     const initialLength = topics.length;
-    topics = topics.filter(t => !(t.name.toLowerCase() === topicName.toLowerCase() && t.category === "CSS"));
+    topics = topics.filter(t => !(t.name.toLowerCase() === topicName.toLowerCase() && t.category === "css"));
 
     if(topics.length === initialLength){
       message.style.color = "red";

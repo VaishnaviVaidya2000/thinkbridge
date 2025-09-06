@@ -11,8 +11,8 @@
   <nav>
     <div class="logo"><img src="logo.jpeg" alt="logo" width="50" height="50"></div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About Us</a></li>
+      <li><a href="#homepage" >Home</a></li>
+      <li><a href="#aboutuspage">About Us</a></li>
       <li class="dropdown">
       <a href="#">Topic </a>
       <ul class="dropdown-menu" aria-haspopup="true" aria-expanded="false">
@@ -20,7 +20,7 @@
         <li><a href="deletetopic.html">Delete</a></li>
       </ul>
     </li>     
-      <li><a href="#footer-column">Contact</a></li>
+      <li><a href="#footerpage">Contact</a></li>
     </ul>
     <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
       <span></span>
@@ -30,7 +30,7 @@
   </nav>
   <!--End of Navbar-->
 <!--Marquee-->
-<div class="marquee-container">
+<div class="marquee-container" id="Homepage">
     <div class="marquee-content">
       <!-- Card 1 -->
       <div class="card">
@@ -107,7 +107,7 @@
     <div class="card-content">
       <h3>Github</h3>
       <p>Build real-life practical projects.</p>
-      <button class="btn-start" onclick="location.href='projects.html'">Start Learning</button>
+      <button class="btn-start" onclick="location.href='githubdisplay.html'">Start Learning</button>
     </div>
   </div>
 </div>
@@ -115,7 +115,7 @@
 <!--Endof Cards-->
   <!--Footer-->
  <footer>
-    <div class="footer-container">
+    <div class="footer-container" id="aboutuspage">
      
       <div class="footer-column">
         <h3>About Us</h3>
@@ -130,15 +130,15 @@
       <div class="footer-column">
         <h3>Quick Links</h3>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
+          <li><a href="#homepage">Home</a></li>
+          <li><a href="#aboutuspage">About us</a></li>
           <li><a href="#">Topic</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#footerpage">Contact</a></li>
         </ul>
       </div>
 
       
-      <div class="footer-column">
+      <div class="footer-column" id="footerpage">
         <h3>Contact</h3>
         <ul>
           <li>Email: vaidyavaishu2000@gmail.com</li>
