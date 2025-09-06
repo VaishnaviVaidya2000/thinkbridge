@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Topics</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 420px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container img {
+      width: 100px;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+    .container img:hover {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #444;
+    }
+
+    select, input, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
+      transform: scale(1.02);
+    }
+
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+
+    button {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.05);
+      background: linear-gradient(135deg, #5a67d8, #6b46c1);
+    }
+
+    .links {
+      margin-top: 15px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: #667eea;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .links a:hover {
+      color: #764ba2;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Add Topic">
+    <h1>Add a Topic</h1>
+    <form id="topicForm">
+      <select id="category" required>
+        <option value="">Select Category</option>
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JavaScript">JavaScript</option>
+      </select>
+      <input type="text" id="name" placeholder="Enter topic name" required>
+      <textarea id="desc" placeholder="Enter description..." required></textarea>
+      <button type="submit">Add Topic</button>
+    </form>
+
+    <div class="links">
+      <p>View topics:</p>
+      <a href="htmldisplay.html">HTML</a> | 
+      <a href="cssdisplay.html">CSS</a> | 
+      <a href="jsdisplay.html">JavaScript</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("topicForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let category = document.getElementById("category").value;
+      let name = document.getElementById("name").value.trim();
+      let desc = document.getElementById("desc").value.trim();
+
+      if (!category || !name || !desc) return;
+
+      let topics = JSON.parse(localStorage.getItem("topics")) || [];
+
+      topics.push({ category, name, desc });
+
+      localStorage.setItem("topics", JSON.stringify(topics));
+
+      document.getElementById("topicForm").reset();
+
+      alert("✅ Topic added successfully!");
+    });
+  </script>
+</body>
+</html>
