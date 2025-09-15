@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Topics</title>
+  <style>
+    /* Background */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e34c26;
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+  background: #fff;
+  border-radius: 15px;
+  width: 280px;
+  height: 250px;   /* 🔹 fixed card height */
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* keeps button at bottom */
+}
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #e34c26;
+      font-size: 22px;
+    }
+
+    .card p {
+  font-size: 14px;
+  color: #555;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* 🔹 show max 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+    /* Category badge */
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(135deg, #ff7e5f, #e34c26);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    .btn-view {
+      margin-top: 15px;
+      display: inline-block;
+      background: #e34c26;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(227,76,38,0.4);
+    }
+
+    .btn-view:hover {
+      background: #ff5b2c;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 18px rgba(227,76,38,0.6);
+    }
+
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      width: 400px;
+      max-width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      text-align: center;
+      position: relative;
+    }
+    .modal-content h2 {
+      margin-top: 0;
+      color: #e34c26;
+    }
+    .modal-content p {
+      color: #555;
+      line-height: 1.5;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #e34c26;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>JavaScript Topics</h1>
+  <div class="card-container" id="cardContainer"></div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
+  <script>
+    let topics = JSON.parse(localStorage.getItem("topics")) || [];
+    let container = document.getElementById("cardContainer");
+
+    let htmlTopics = topics.filter(t => t.category === "JavaScript");
+
+    if (htmlTopics.length === 0) {
+      container.innerHTML = "<p style='text-align:center;color:#555;'>No HTML topics found.</p>";
+    } else {
+      htmlTopics.forEach((topic, index) => {
+        let card = document.createElement("div");
+        card.classList.add("card");
+
+        card.innerHTML = `
+          <div class="badge">${topic.category}</div>
+          <h3>${topic.name}</h3>
+          <p>${topic.desc}</p>
+          <button class="btn-view" onclick="openModal('${topic.name}', \`${topic.desc}\`)">View</button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function openModal(title, desc) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalDesc").innerText = desc;
+      document.getElementById("modal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
