@@ -13,7 +13,13 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#">Home</a></li>
       <li><a href="#">About Us</a></li>
-      <li><a href="Addtopic.html">Add Topic</a></li>      
+      <li class="dropdown">
+      <a href="#">Topic </a>
+      <ul class="dropdown-menu" aria-haspopup="true" aria-expanded="false">
+        <li><a href="Addtopic.html">Add</a></li>
+        <li><a href="deletetopic.html">Delete</a></li>
+      </ul>
+    </li>     
       <li><a href="#footer-column">Contact</a></li>
     </ul>
     <div class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')">
@@ -28,7 +34,7 @@
     <div class="marquee-content">
       <!-- Card 1 -->
       <div class="card">
-        <img src="html2.jpeg" alt="HTML">
+        <img src="html3.png" alt="HTML">
       </div>
 
       <!-- Card 2 -->
@@ -48,7 +54,7 @@
 
       <!-- Duplicate for smooth loop -->
       <div class="card">
-        <img src="html2.jpeg" alt="HTML">
+        <img src="html3.png" alt="HTML">
       </div>
       <div class="card">
         <img src="css2.png" alt="CSS">
@@ -62,6 +68,51 @@
     </div>
   </div>
 <!--End of Marquee-->
+<!--tagline-->
+<div class="tagline">
+    <h2>Web Skills that Stick: HTML, CSS & JavaScript.</h2>
+</div>
+<!--Endof tagline-->
+<!--cards-->
+<div class="card-container">
+  <div class="card" id="card1">
+    <img src="html3.png" alt="HTML">
+    <div class="card-content">
+      <h3>HTML</h3>
+      <p>Learn the basics of HTML structure.</p>
+      <button class="btn-start" onclick="location.href='htmldisplay.html'">Start Learning</button>
+    </div>
+  </div>
+
+  <div class="card" id="card2">
+    <img src="css2.png" alt="CSS">
+    <div class="card-content">
+      <h3>CSS</h3>
+      <p>Style your web pages beautifully.</p>
+      <button class="btn-start" onclick="location.href='cssdisplay.html'">Start Learning</button>
+    </div>
+  </div>
+
+  <div class="card" id="card3">
+    <img src="js.png" alt="JavaScript">
+    <div class="card-content">
+      <h3>JavaScript</h3>
+      <p>Add interactivity to your websites.</p>
+      <button class="btn-start" onclick="location.href='jsdisplay.html'">Start Learning</button>
+    </div>
+  </div>
+
+  <div class="card" id="card4">
+    <img src="github.png" alt="Projects">
+    <div class="card-content">
+      <h3>Github</h3>
+      <p>Build real-life practical projects.</p>
+      <button class="btn-start" onclick="location.href='projects.html'">Start Learning</button>
+    </div>
+  </div>
+</div>
+
+<!--Endof Cards-->
   <!--Footer-->
  <footer>
     <div class="footer-container">
